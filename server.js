@@ -381,8 +381,8 @@ io.on("connection", socket => {
 
     
 
-    const score = evaluation.score;
-    player.score += score;
+    const score = Number.isFinite(evaluation.score) ? evaluation.score : 0;
+player.score += score;
 
     io.to(room.code).emit("turn_result", {
       playerId: player.id,
