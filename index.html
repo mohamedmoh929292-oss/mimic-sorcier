@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mimic Sorcier</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="fog fog1"></div>
+  <div class="fog fog2"></div>
+
+  <main class="app">
+    <section id="homeScreen" class="screen active">
+      <div class="panel hero">
+        <div class="crest">✦</div>
+        <h1>MIMIC SORCIER</h1>
+        <p class="subtitle">Écoute la référence. Imite-la. Que la magie juge ta performance.</p>
+
+        <button id="createPartyBtn" class="primary">Créer une party</button>
+
+        <div class="divider"><span>ou</span></div>
+
+        <div class="join-row">
+          <input id="homeCodeInput" maxlength="6" placeholder="CODE PARTY" />
+          <button id="joinFromHomeBtn" class="secondary">Rejoindre</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="nameScreen" class="screen">
+      <div class="panel small">
+        <h2 id="nameTitle">Ton pseudo</h2>
+        <input id="nameInput" maxlength="24" placeholder="Entre ton pseudo..." />
+        <button id="confirmNameBtn" class="primary">Continuer</button>
+        <button id="backHomeBtn" class="ghost">Retour</button>
+      </div>
+    </section>
+
+    <section id="lobbyScreen" class="screen">
+      <div class="topbar">
+        <div>
+          <span class="label">PARTY</span>
+          <strong id="roomCodeText">------</strong>
+        </div>
+        <button id="copyLinkBtn" class="secondary">Copier le lien</button>
+      </div>
+
+      <div class="panel">
+        <h2>Salon d'attente</h2>
+        <p id="playerCount">1 / 8 joueurs</p>
+        <div id="playersList" class="players"></div>
+
+        <div id="hostLobbyControls">
+          <button id="startPartyBtn" class="primary">Lancer la party</button>
+          <p id="minPlayersText" class="hint">Il faut au moins 2 joueurs.</p>
+        </div>
+
+        <p id="waitingHostText" class="hint hidden">En attente de l'hôte...</p>
+      </div>
+    </section>
+
+    <section id="rulesScreen" class="screen">
+      <div class="panel rules">
+        <h2>Comment jouer ?</h2>
+        <p>Une référence audio va être jouée.</p>
+        <p>Tu peux appuyer sur Écouter autant de fois que nécessaire avant ton tour.</p>
+        <p>Quand c'est ton tour, clique sur le micro. Un décompte de 5 secondes démarre.</p>
+        <p>Imite la référence le plus fidèlement possible.</p>
+        <p>Ta note sera affichée à tout le monde.</p>
+        <p>Chaque référence ne sera utilisée qu'une seule fois.</p>
+        <button id="understoodBtn" class="primary">J'ai compris</button>
+        <p id="readyStatus" class="hint"></p>
+      </div>
+    </section>
+
+    <section id="gameScreen" class="screen">
+      <div class="topbar">
+        <div>
+          <span class="label">PARTY</span>
+          <strong id="gameRoomCode">------</strong>
+        </div>
+        <button id="endGameBtn" class="danger hidden">Mettre fin à la partie</button>
+      </div>
+
+      <div class="game-grid">
+        <div class="panel main-game">
+          <span class="label">RÉFÉRENCE</span>
+          <h2 id="referenceTitle">En attente...</h2>
+
+          <audio id="referenceAudio"></audio>
+
+          <div class="audio-actions">
+            <button id="playAudioBtn" class="secondary">▶ Écouter</button>
+          </div>
+
+          <div class="turn-box">
+            <p id="turnText">En attente du prochain tour...</p>
+            <div id="countdown" class="countdown hidden">5</div>
+            <button id="micBtn" class="mic hidden" aria-label="Micro">🎙️</button>
+            <p id="recordingText" class="recording hidden">Enregistrement...</p>
+          </div>
+
+          <div id="resultBox" class="result hidden">
+            <span id="resultPlayer"></span>
+            <strong id="resultScore">0/100</strong>
+          </div>
+        </div>
+
+        <aside class="panel scoreboard">
+          <h3>Classement</h3>
+          <div id="scoreList"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="finishedScreen" class="screen">
+      <div class="panel">
+        <h2>Partie terminée</h2>
+        <p id="finishReason"></p>
+        <div id="finalRanking" class="ranking"></div>
+        <button id="returnHomeBtn" class="primary">Retour à l'accueil</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
