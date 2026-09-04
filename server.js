@@ -379,9 +379,7 @@ io.on("connection", socket => {
       Number(durationMs || 0)
     );
 
-    if (!evaluation.valid) {
-      return callback?.({ ok: false, error: evaluation.reason, retry: true });
-    }
+    
 
     const score = evaluation.score;
     player.score += score;
