@@ -19,20 +19,56 @@ const references = [
   {
     id: "ref_001",
     title: "Référence 1",
-    audio: "/audio/ref_001.mp3",
-    expectedText: "expelliarmus"
+    audio: "/ref_001.mp4",
+    expectedText: ""
   },
   {
     id: "ref_002",
     title: "Référence 2",
-    audio: "/audio/ref_002.mp3",
-    expectedText: "stupéfix"
+    audio: "/ref_002.mp4",
+    expectedText: ""
   },
   {
     id: "ref_003",
     title: "Référence 3",
-    audio: "/audio/ref_003.mp3",
-    expectedText: "wingardium leviosa"
+    audio: "/ref_003.mp4",
+    expectedText: ""
+  },
+  {
+    id: "ref_004",
+    title: "Référence 4",
+    audio: "/ref_004.mp4",
+    expectedText: ""
+  },
+  {
+    id: "ref_005",
+    title: "Référence 5",
+    audio: "/ref_005.mp4",
+    expectedText: ""
+  },
+  {
+    id: "ref_006",
+    title: "Référence 6",
+    audio: "/ref_006.mp4",
+    expectedText: ""
+  },
+  {
+    id: "ref_007",
+    title: "Référence 7",
+    audio: "/ref_007.mp4",
+    expectedText: ""
+  },
+  {
+    id: "ref_008",
+    title: "Référence 8",
+    audio: "/ref_008.mp4",
+    expectedText: ""
+  },
+  {
+    id: "ref_009",
+    title: "Référence 9",
+    audio: "/ref_009.mp4",
+    expectedText: ""
   }
 ];
 
